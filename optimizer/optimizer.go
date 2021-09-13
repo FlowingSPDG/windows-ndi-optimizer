@@ -1,14 +1,13 @@
 package optimizer
 
-import "context"
+import (
+	"context"
 
-// Task main optimizer task
-type Task interface {
-	Run(ctx context.Context) error
-}
+	"github.com/FlowingSPDG/windows-ndi-optimizer/task"
+)
 
 type optimizer struct {
-	tasks []Task
+	tasks []task.Task
 }
 
 func (o *optimizer) Run(ctx context.Context) error {
@@ -24,7 +23,7 @@ type Optimizer interface {
 	Run(ctx context.Context) error
 }
 
-func NewOptimizer(ts []Task) Optimizer {
+func NewOptimizer(ts []task.Task) Optimizer {
 	return &optimizer{
 		tasks: ts,
 	}

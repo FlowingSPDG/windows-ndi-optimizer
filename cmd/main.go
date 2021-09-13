@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/FlowingSPDG/windows-ndi-optimizer/optimizer"
+	"github.com/FlowingSPDG/windows-ndi-optimizer/task"
 )
 
 func main() {
@@ -14,7 +15,7 @@ func main() {
 }
 
 func run(ctx context.Context) error {
-	tasks := make([]optimizer.Task, 0)
+	tasks := task.AllTasks()
 	opt := optimizer.NewOptimizer(tasks)
 	if err := opt.Run(ctx); err != nil {
 		return nil

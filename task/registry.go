@@ -1,9 +1,7 @@
-package reg
+package task
 
 import (
 	"context"
-
-	"github.com/FlowingSPDG/windows-ndi-optimizer/optimizer"
 )
 
 // Optimize NIC driver via registry
@@ -22,18 +20,18 @@ func (t *taskDisableEEE) Run(ctx context.Context) error {
 	return nil
 }
 
-func NewTaskDisableEEE() optimizer.Task {
+func NewTaskDisableEEE() Task {
 	return &taskDisableEEE{}
 }
 
-type makeNetworkPrivate struct {
+type taskMakeNetworkPrivate struct {
 }
 
-func (t *makeNetworkPrivate) Run(ctx context.Context) error {
+func (t *taskMakeNetworkPrivate) Run(ctx context.Context) error {
 	// TODO: PowerShellからネットワークをプライベートに設定する
 	return nil
 }
 
-func NewMakeNetworkPrivate() optimizer.Task {
-	return &makeNetworkPrivate{}
+func NewTaskMakeNetworkPrivate() Task {
+	return &taskMakeNetworkPrivate{}
 }
