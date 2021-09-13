@@ -11,7 +11,7 @@ const (
 	registryNetworkGroupSettingsPath = "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Profiles"
 )
 
-// taskDisableEEE Registry optimize task. Implements Optimzier interface
+// taskDisableEEE Registry optimize task. Implements Task interface
 type taskDisableEEE struct {
 }
 
@@ -24,11 +24,12 @@ func NewTaskDisableEEE() Task {
 	return &taskDisableEEE{}
 }
 
+// taskMakeNetworkPrivate Make network private task. Implements Task interface
 type taskMakeNetworkPrivate struct {
 }
 
 func (t *taskMakeNetworkPrivate) Run(ctx context.Context) error {
-	// TODO: PowerShellからネットワークをプライベートに設定する
+	// TODO: レジストリからネットワークをプライベートに設定する
 	return nil
 }
 
