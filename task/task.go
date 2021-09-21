@@ -7,10 +7,12 @@ type Task interface {
 	Run(ctx context.Context) error
 }
 
+// AllTasks Get All Optimize tasks
 func AllTasks() []Task {
-	ts := make([]Task, 0)
-	ts = append(ts, NewTaskMakeNetworkPrivate())
-	ts = append(ts, NewTaskDisableEEE())
+	ts := []Task{
+		NewTaskMakeNetworkPrivate(),
+		NewTaskDisableEEE(),
+	}
 
 	return ts
 }
