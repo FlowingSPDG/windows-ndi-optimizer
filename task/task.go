@@ -12,6 +12,7 @@ func AllTasks() []Task {
 	ts := []Task{
 		NewTaskMakeNetworkPrivate(),
 		NewTaskDisableEEE(),
+		NewTaskMakeNetworkPrivate(),
 	}
 
 	return ts
